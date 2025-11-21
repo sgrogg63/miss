@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citation du jour</title>
+    <style>
+        body {
+            background: url('https://raw.githubusercontent.com/ton-utilisateur/ton-depot/main/ton-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 200px;
+            margin: 0;
+            height: 100vh;
+        }
+        #citation {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            width: 70%;
+            margin-left: 15%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="citation">Chargement de la citation...</div>
+
+    <script>
+        // Liste des citations, avec la date associée
+        const citations = [
+            {
+                "date": "2025-11-21",
+                "citation": "Le succès n'est pas final. L'échec n'est pas fatal. C'est le courage de continuer qui compte. - Winston Churchill"
+            },
+            {
+                "date": "2025-11-22",
+                "citation": "La vie est ce qui se passe quand on est occupé à faire d'autres projets. - John Lennon"
+            },
+            {
+                "date": "2025-11-23",
+                "citation": "Tout ce que l'esprit de l'homme peut concevoir et croire, il peut l'accomplir. - Napoleon Hill"
+            },
+            // Ajoute d'autres citations ici
+        ];
+
+        // Fonction pour récupérer la citation du jour
+        function afficherCitation() {
+            const today = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
+            const citation = citations.find(item => item.date === today);
+
+            const citationDiv = document.getElementById('citation');
+            if (citation) {
+                citationDiv.textContent = citation.citation;
+            } else {
+                citationDiv.textContent = "Aucune citation pour aujourd'hui.";
+            }
+        }
+
+        // Appel de la fonction pour afficher la citation du jour
+        afficherCitation();
+    </script>
+
+</body>
+</html>
